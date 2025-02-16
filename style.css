@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -59,6 +60,8 @@ footer {
     margin-top: 20px;
 }
 .Maincontainer {
+    margin-bottom: 0; /* מסיר רווח מיותר */
+    padding-bottom: 0;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -75,6 +78,8 @@ footer {
     z-index: -1; /* מבטיח שהתמונה תהיה מאחורי הניווט */
 }
 .about-section {
+    margin-top: 0; /* מבטל רווח מיותר */
+    padding-top: 0;
     background-image: url("asent/images/polygon-black-gold-background-free-vector.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -199,3 +204,70 @@ footer {
         transform: translateY(5px) rotate(-1deg);
     }
 }
+@media (max-width: 768px) {
+    .Maincontainer img {
+        object-fit: contain;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .product {
+        width: 100%;
+        height: auto;
+    }
+
+    .Maincontainer {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .about-section {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+@media (max-width: 768px) {
+    .Maincontainer {
+       
+        min-height: 300px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto !important;
+        max-height: 80vh; /* מונע שהתמונה תתארך יותר מדי */
+        margin: 0 auto !important;
+        padding: 0 !important;
+        overflow: hidden;
+        background: none !important; /* מסיר רקע שחור אם יש */
+    }
+
+    .Maincontainer img {
+        width: 100%;
+        max-width: 100%; /* משנה את זה לפי גודל התמונה */
+        height: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
+    }
+
+    .about-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+
